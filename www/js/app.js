@@ -23,12 +23,15 @@ angular.module('starter', ['ionic', 'leaflet-directive','starter.controllers', '
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
+  $ionicConfigProvider.backButton.text('');
+  $ionicConfigProvider.backButton.previousTitleText(false);
+  $ionicConfigProvider.navBar.alignTitle('center');
+  $ionicConfigProvider.scrolling.jsScrolling(true);
+
+  
+
   $stateProvider
 
   // setup an abstract state for the tabs directive
@@ -69,7 +72,16 @@ angular.module('starter', ['ionic', 'leaflet-directive','starter.controllers', '
         controller: 'MapCtrl'
       }
     }
-  });
+  })
+  .state('tab.map-detail', {
+      url: '/map/:parkId',
+      views: {
+        'tab-map': {
+          templateUrl: 'templates/park-detail.html',
+          controller: 'ParkDetailCtrl'
+        }
+      }
+    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/parks');
