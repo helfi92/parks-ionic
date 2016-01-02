@@ -20,4 +20,9 @@
 
 .controller('MapCtrl', function($scope,$log) {
   $log.info('MapCtrl created');
+  $scope.mapCenter = {
+    lat: 39.833,
+    lng: -98.583,
+    zoom: 3
+  }
 });
