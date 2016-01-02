@@ -13,8 +13,9 @@
   })
 })
 
-.controller('ParkDetailCtrl', function($scope, $stateParams, $log) {
-  $log.info('ParkDetailCtrl created');
+.controller('ParkDetailCtrl', function($scope, $stateParams, $log,ParkData) {
+  $log.info('ParkDetailCtrl created', $stateParams.parkId);
+  $scope.park = ParkData.getPark($stateParams.parkId);
 })
 
 .controller('MapCtrl', function($scope,$log) {

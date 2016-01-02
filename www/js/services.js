@@ -13,6 +13,7 @@ angular.module('starter.services', [])
       return theParkData;
     },
     getPark : function(parkID){
+      console.log(theParkData);
       for( var i = 0 ; i < theParkData.length; i++){
         if(theParkData[i].id === parseInt(parkID)){
           return theParkData[i];
